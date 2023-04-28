@@ -1,0 +1,33 @@
+{
+  "name": "book-store",
+  "version": "1.0.0",
+  "description": "Book Store project (Module Federation demo)",
+  "main": "index.js",
+      "workspaces": [
+      "packages/*"
+    ],
+    "scripts": {
+      "build": "pnpm  --parallel --filter \"./**\" build",
+      "preview": "pnpm  --parallel --filter \"./**\" preview",
+      "stop": "kill-port --port 5000,5001"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConstanzaJazme/book-store.git"
+  },
+  "keywords": [
+    "module-federation",
+    "vite",
+    "pnpm"
+  ],
+  "author": "Constanza Jazme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConstanzaJazme/book-store/issues"
+  },
+  "homepage": "https://github.com/ConstanzaJazme/book-store#readme",
+  "devDependencies": {
+    "kill-port": "^2.0.1",
+    "@originjs/vite-plugin-federation": "^1.1.10"
+  }
+}
