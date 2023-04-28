@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Book Store project (Module Federation demo)",
   "main": "index.js",
-      "workspaces": [
-      "packages/*"
-    ],
-    "scripts": {
-      "build": "pnpm  --parallel --filter \"./**\" build",
-      "preview": "pnpm  --parallel --filter \"./**\" preview",
-      "stop": "kill-port --port 5000,5001"
-    },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm  --parallel --filter \"./**\" build",
+    "preview": "pnpm  --parallel --filter \"./**\" preview",
+    "stop": "kill-port --port 5000,5001"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ConstanzaJazme/book-store.git"
