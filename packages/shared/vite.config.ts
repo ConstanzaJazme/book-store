@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 import dns from "dns";
-import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 dns.setDefaultResultOrder("verbatim");
@@ -11,9 +11,10 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "app",
-      remotes: {
-        shared: "http://localhost:5000/assets/shared.js",
+      name: "shared",
+      filename: "shared.js",
+      exposes: {
+        "./Button": "./src/components/Button.tsx",
       },
       shared: ["react"],
     }),
@@ -21,8 +22,11 @@ export default defineConfig({
   ],
   preview: {
     host: "localhost",
-    port: 5001,
+    port: 5000,
     strictPort: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   build: {
     target: "esnext",
